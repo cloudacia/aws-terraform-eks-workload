@@ -22,3 +22,13 @@ resource "aws_eks_cluster" "cloudacia_eks" {
     aws_iam_role_policy_attachment.eks_control_plane
   ]
 }
+
+####################################################
+# GETTING EKS CONFIGURATION FILE FOR KUBECTL       #
+####################################################
+resource "null_resource" "get_kubeconfig" {
+  provisioner "local-exec" {
+    command = "aws eks update-kubeconfig --region ${var.aws_region} --name ${aws_eks_cluster.cloudacia_eks.id}"
+  }
+  depends_on = [aws_eks_cluster.cloudacia_eks]
+}
