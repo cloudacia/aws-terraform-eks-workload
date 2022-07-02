@@ -63,7 +63,14 @@ variable "eks_data_plane_policy" {
   }
 }
 
+# EKS NODE GROUP NAME
 variable "node_group_name" {
   type    = string
   default = "cloudacia_eks_node_group"
+}
+
+# AWS RESOURCE TAG
+variable "default_tag" {
+  type    = string
+  default = "Cloudacia Development"
 }

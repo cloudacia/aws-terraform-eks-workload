@@ -1,3 +1,6 @@
+####################################################
+#                EKS CLUSTER                       #
+####################################################
 resource "aws_eks_cluster" "cloudacia_eks" {
   name     = "cloudacia_eks_cluster"
   role_arn = aws_iam_role.eks_control_plane.arn
