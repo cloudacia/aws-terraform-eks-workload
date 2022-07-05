@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: linux-tweet-app
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: www.cloudacia.net
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+    - name: https
+      port: 443
+      targetPort: 80
+      protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: linux-tweet-app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linux-tweet-app
+spec:
+  selector:
+    matchLabels:
+      app: linux-tweet-app
+  template:
+    metadata:
+      labels:
+        app: linux-tweet-app
+    spec:
+      containers:
+        - image: eduarte/linux-tweet-app:2
+          name: linux-tweet-app
+          ports:
+            - containerPort: 80
+              name: http
