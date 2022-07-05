@@ -166,3 +166,21 @@ variable "eks_deployment_manifest_1" {
   type    = string
   default = "simple-web-app.yml"
 }
+
+# SSL CERTIFICATE
+variable "ssl_certificate_01" {
+  type    = string
+  default = "*.cloudacia.net"
+}
+
+# WWWW DNS RECORD
+variable "www_dns_record01" {
+  type    = string
+  default = "www.cloudacia.net"
+}
+
+# DNS DOMAIN NAME
+variable "domain_name" {
+  type    = string
+  default = "cloudacia.net."
+}
