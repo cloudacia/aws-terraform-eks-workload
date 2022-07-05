@@ -3,7 +3,9 @@ kind: Service
 metadata:
   name: linux-tweet-app
   annotations:
-    # DNS record CNAME
+    # ALias record
+    external-dns.alpha.kubernetes.io/alias: cloudacia.net
+    # WWW DNS record CNAME
     external-dns.alpha.kubernetes.io/hostname: www.cloudacia.net
     # Note that the backend talks over HTTP.
     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
