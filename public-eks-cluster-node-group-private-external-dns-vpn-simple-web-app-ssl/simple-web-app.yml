@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: linux-tweet-app
+  annotations:
+    # ALias record
+    external-dns.alpha.kubernetes.io/alias: cloudacia.net
+    # WWW DNS record CNAME
+    external-dns.alpha.kubernetes.io/hostname: www.cloudacia.net
+    # Note that the backend talks over HTTP.
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    # TODO: Fill in with the ARN of your certificate.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:573869740900:certificate/0bf04cd1-5d62-4156-8655-4587a77d789a
+    # Only run SSL on the port named "https" below.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+    - name: https
+      port: 443
+      targetPort: 80
+      protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: linux-tweet-app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linux-tweet-app
+spec:
+  selector:
+    matchLabels:
+      app: linux-tweet-app
+  template:
+    metadata:
+      labels:
+        app: linux-tweet-app
+    spec:
+      containers:
+        - image: eduarte/linux-tweet-app:2
+          name: linux-tweet-app
+          ports:
+            - containerPort: 80
+              name: http
