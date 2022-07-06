@@ -15,6 +15,6 @@ output "eks_cluster_endpoint" {
 ####################################################
 #                VPN ENDPOIN        T              #
 ####################################################
-output "vpn_endpoint" {
-  value = aws_ec2_client_vpn_endpoint.cloudacia-vpn-endpoint.dns_name
-}
+#output "vpn_endpoint" {
+#  value = aws_ec2_client_vpn_endpoint.cloudacia-vpn-endpoint.dns_name
+#}

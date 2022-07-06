@@ -6,7 +6,7 @@ resource "aws_eks_cluster" "cloudacia_eks" {
   role_arn = aws_iam_role.eks_control_plane.arn
 
   vpc_config {
-    endpoint_private_access = true
+    endpoint_private_access = false
     endpoint_public_access  = true
     subnet_ids = [aws_subnet.subnet04.id,
       aws_subnet.subnet05.id,
