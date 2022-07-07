@@ -13,7 +13,7 @@ resource "null_resource" "modify_file_yaml_1" {
 }
 
 ###############################################################
-# SETTING UP THE CURRENT SSL CERTIFICATE FOR A SERVICE OBJECT #
+# DEPLOPY SINGLE WEB APPLICATION                              #
 ###############################################################
 resource "null_resource" "modify_file_yaml_2" {
   provisioner "local-exec" {

@@ -149,6 +149,12 @@ variable "eks_service_account_name" {
   default = "external-dns"
 }
 
+# EKS Service Account Name
+variable "eks_service_account_name_2" {
+  type    = string
+  default = "aws-load-balancer-controller"
+}
+
 # EKS Service Account Name namespace
 variable "eks_service_account_namespace" {
   type    = string
@@ -167,6 +173,12 @@ variable "eks_deployment_manifest_1" {
   default = "simple-web-app.yml"
 }
 
+# K8S deployment manifest
+variable "eks_deployment_manifest_2" {
+  type    = string
+  default = "2048_full.yaml"
+}
+
 # SSL CERTIFICATE
 variable "ssl_certificate_01" {
   type    = string
@@ -183,4 +195,28 @@ variable "www_dns_record01" {
 variable "domain_name" {
   type    = string
   default = "cloudacia.net."
+}
+
+# TargetGroupBinding for AWS ALB INGRESS operator
+variable "targetgroupbinding" {
+  type    = string
+  default = "github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master"
+}
+
+# EKS chart repository
+variable "els_charts_repo" {
+  type    = string
+  default = "https://aws.github.io/eks-charts"
+}
+
+# AWS Load Balanceer controller name
+variable "eks_alb_controller_name" {
+  type    = string
+  default = "aws-load-balancer-controller eks/aws-load-balancer-controller"
+}
+
+# WWWW DNS RECORD
+variable "www_dns_record02" {
+  type    = string
+  default = "game.cloudacia.net"
 }
