@@ -48,10 +48,10 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/subnets: SUBNET_1, SUBNET_2, SUBNET_3
-    external-dns.alpha.kubernetes.io/hostname: DOMAIN_NAME
+    alb.ingress.kubernetes.io/subnets: subnet-0cde41ca69be4bc6e, subnet-0a6bc28ed4f0282d4, subnet-065b61f7d0fb496f2
+    external-dns.alpha.kubernetes.io/hostname: game.cloudacia.net
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
-    alb.ingress.kubernetes.io/certificate-arn: SSL_CERTIFICATE
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:573869740900:certificate/9375a063-0076-4992-bc14-04b75049472c
 spec:
   ingressClassName: alb
   rules:
