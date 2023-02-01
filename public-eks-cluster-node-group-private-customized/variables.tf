@@ -121,3 +121,16 @@ variable "eks_cluster_name" {
   type    = string
   default = "eks-cluster-testing"
 }
+
+# AWS EKS CONTROL PLANE
+variable "eks_control_plane_iam_role_name" {
+  type    = string
+  default = "ServiceRoleForEKSCluster"
+}
+
+
+# AWS EKS DATA PLANE
+variable "eks_data_plane_iam_role_name" {
+  type    = string
+  default = "RoleForEKSWorkers"
+}

@@ -2,7 +2,7 @@
 #  AWS IAM ROLE FOR EKS CLUSTER               #
 ###############################################
 resource "aws_iam_role" "eks_control_plane" {
-  name               = "CloudaciaServiceRoleForEKSCluster"
+  name               = var.eks_control_plane_iam_role_name
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -24,7 +24,7 @@ EOF
 #  AWS IAM ROLE FOR EKS WORKERS               #
 ###############################################
 resource "aws_iam_role" "eks_data_plane" {
-  name               = "CloudaciaServiceRoleForEKSWorkers"
+  name               = var.eks_data_plane_iam_role_name
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
