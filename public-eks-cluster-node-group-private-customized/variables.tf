@@ -101,17 +101,23 @@ variable "eks_data_plane_policy" {
 # EKS NODE GROUP NAME
 variable "node_group_name" {
   type    = string
-  default = "cloudacia_eks_node_group"
+  default = "eks-nodegroup-testing"
 }
 
 # AWS RESOURCE TAG
 variable "default_tag" {
   type    = string
-  default = "Cloudacia Development"
+  default = "Development"
 }
 
-# AWS EKS CONTROL PLANE VERSION
-variable "eks_version" {
+# AWS EKS CLUSTER VERSION
+variable "eks_cluster_version" {
   type    = string
   default = "1.22"
+}
+
+# AWS EKS CLUSTER NAME
+variable "eks_cluster_name" {
+  type    = string
+  default = "eks-cluster-testing"
 }
