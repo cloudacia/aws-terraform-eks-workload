@@ -1,4 +1,9 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: eks-fargate-nodes
+
+apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
